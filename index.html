@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+
+<!--
+  Content Copyright (c) 2012 Dave Hall - http://davehall.com.au
+  
+  Reuse permitted under the terms of the CC-SA-NC.
+
+  Google HTML5 slide template - http://code.google.com/p/html5slides
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+-->
+
+<html>
+  <head>
+    <title>Enterprise Workflow</title>
+
+    <meta charset='utf-8'>
+    <script src='./slides.js'></script>
+  </head>
+  
+  <body style='display: none'>
+    <section class='slides layout-regular template-default'>
+
+      <article class='biglogo'>
+      </article>
+
+      <article>
+        <h1>
+          An Enterprise Scale Drupal Workflow
+        </h1>
+        <p>
+          Dave Hall
+          <br>
+          Drupal Business Days, Vienna
+          <br>
+          4 May 2012
+        </p>
+      </article>
+
+      <article class="fill">
+        <h3>
+          Dave Hall
+        </h3>
+        <p>
+          <img src='images/davehall.jpg'>
+        </p>
+        <div class='source white'>
+          Source: <a href="http://www.flickr.com/photos/bendechrau/4766368608/">Ben Dechrai</a>
+        </div>
+      </article>
+
+      <article>
+        <h3 style="margin-top: 30%; text-align: center;">
+          <img src='images/technocrat.png'>
+        </h3>
+      </article>
+
+      <article>
+        <h3>Small Site Workflow</h3>
+        <ul>
+          <li>Simple</li>
+          <li>Little training required</li>
+          <li>Everything done on Production</li>
+          <li>Publish/Unpublish/Delete</li>
+          <li>Config likely to only be in DB</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Common Publishing Workflow</h3>
+        <ul>
+          <li>Everything done on Production</li>
+          <li>Use contrib modules:
+            <ul>
+              <li>Rules</li>
+              <li>Workflow</li>
+              <li>Workbench</li>
+              <li>Maestro</li>
+              <li>Revisioning</li>
+              <li>Others</li>
+            </ul>
+          </li>
+          <li>Needs to be configured for client's needs</li>
+          <li>Config likely to only be in features</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Limitations</h3>
+        <ul>
+          <li>Everything done on Production</li>
+          <li>Difficult to move content through environments</li>
+          <li>Completely different workflow for code/config changes</li>
+          <li>No relationship between code, config and content</li>
+          <li>Layouts aren't versioned</li>
+          <li>Features reverts can be messy</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>What is Content?</h3>
+        [webchick usability image]
+      </article>
+
+      <article>
+        <h3>Environments</h3>
+        <ul>
+          [IMAGE REQUIRED - Hippie hugging a tree?]
+          <li>Indepedent sites</li>
+          <li>Content can be moved through</li>
+          <li>Config/code can be reviewed through</li>
+          <li>Changes can be QA'd easily</li>
+          <li>Different security requirements</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Deployments</h3>
+        <ul>
+          [IMAGE REQUIRED - Satelite being deployed into space]
+          <li>Move a change from one environment to another</li>
+          <li>Can be code, config, content or any combination of the 3</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Continous Release</h3>
+        <ul>
+          [IMAGE REQUIRED - ???]
+          <li>Deploy when ready</li>
+          <li>Automated Processes</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>How?</h3>
+        <ul>
+          <li>UUID</li>
+          <li>Deploy module</li>
+          <li>Features</li>
+          <li>BEAN</li>
+          <li>Services</li>
+          <li>Behat</li>
+          <li>Sandboxes</li>
+          <li>Jenkins</li>
+          <li>git</li>
+          <li>Everything is a job</li>
+          <li>Another Drupal site</li>
+          <li>WF Server</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>UUID</h3>
+        <ul>
+          <li>Universally Unique IDentifier</li>
+          <li>RFC XXXX</li>
+          <li>Each entity has one</li>
+          <li>Each revision has one</li>
+          <li>Can be tracked through environments</li>
+          <li><a href="http://drupal.org/project/uuid">Contrib module</a> in Drupal 6 and 7</li>
+          <li><a href="https://drupal.org/node/1252486">In Drupal 8 core</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Deploy</h3>
+        <ul>
+          <li>Deploys entities</li>
+          <li>Relies on services</li>
+          <li>Drupal 6 module</li>
+          <li>Dev snapshots for 7</li>
+          <li>Works well</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Features</h3>
+        <ul>
+          <li>Export config to code</li>
+          <li>Config becomes revisionable<li>
+          <li>In browser git support</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>BEAN</h3>
+        <ul>
+          <li>Block Entities Aren't Nodes</li>
+          <li>New Drupal 7 contrib module</li>
+          <li>Blocks as fieldable entities</li>
+          <li>Can be managed like content</li>
+          <li>Can be deployed like content</li>
+          <li>Works like blocks, not nodes</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Services</h3>
+        <ul>
+          <li>Webservices for Drupal</li>
+          <li>Used by deploy</li>
+          <li>Used to trigger deployments</li>
+          <li>Used to get job info</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Behat</h3>
+        <ul>
+          <li>PHP based implementation of cucumber</li>
+          <li>Behaviour Driven Development framework</li>
+          <li>Part of testing framework</li>
+          <li>Can be faster than Simpletest</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Sandboxes</h3>
+        <ul>
+          <li>Development environments</li>
+          <li>Separate sandbox per job</li>
+          <li>Massively Parralel development</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Jenkins</h3>
+        <ul>
+          <li>Continous integration server</li>
+          <li>Post Commit tests</li>
+          <li>Task automation</li>
+          <li>Tracks history</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>git</h3>
+        <ul>
+          <li>Distributed version control</li>
+          <li>Branch per environment</li>
+          <li>Branch per sandbox</li>
+          <li>ACLs enforced by gitolite</li>
+          <li>Automated merges</li>
+          <li>gitweb for reviews and history</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>WF Server</h3>
+        <ul>
+          <li>Daemon process on each node</li>
+          <li>Powered by <a href="http://github.com/youngj/httpserver">HTTPServer</a></li>
+          <li>Encrypted webservices (JSON + AES)</li>
+          <li>Autenticates client and server using pre shared keys</li>
+          <li>Abstracts underlying environment</li>
+          <li>Why not drush?</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Another Drupal Site</h3>
+        <ul>
+          <li>Management node</li>
+          <li>Front end for approvals and deployments</li>
+          <li>Creates and destroys sandboxes</li>
+          <li>Tracks system state across all environments</li>
+          <li>Full history and audit trail</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Why not Aegir?</h3>
+        <ul>
+          <li>Great project</li>
+          <li>Managing many versions of 1 site</li>
+          <li>Didn't fit the security model</li>
+          <li>Borrowed some of the ideas</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Everything is a Job</h3>
+        <ul>
+          <li>Simple process that everything uses</li>
+          <li>One character typo fix</li>
+          <li>Major new functionality</li>
+          <li>security updates etc</li>
+          <li>Everything is tracked</li>
+          <li>Clear audit trail</li>
+          <li>Out of order deployments</li>
+        </ul>
+      </article>
+
+      <article class="full">
+        <h3>Why Bother?</h3>
+      </article>
+
+      <article>
+        <h3>Empower Editors</h3>
+        <ul>
+          <li>Allow them to be site builders</li>
+          <li>Allow them to be sysadmins</li>
+          <li>Don't be afraid to deploy</li>
+          <li>Idea to launched in an afternoon</li>
+          <li>Iterate tightly</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Streamline Processes</h3>
+        <ul>
+          <li>Remove manual processes</li>
+          <li>Give tools to those with the knowledge</li>
+          <li>Reduce double handling</li>
+          <li>Remove bottlenecks</li>
+          <li>Reduce friction</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>Problems</h3>
+        <ul>
+          <li>Building it</li>
+          <li>Filling in the gaps</li>
+          <li><acronym title="What Will Drupal Do?">WWDD</acronym>?</li>
+          <li>Pivoting</li>
+          <li><acronym href="Large Scale Drupal">LSD</acronym></li>
+        </ul>
+      </article>
+
+      <article class="fill">
+        <h3>Was it worth it?</h3>
+        <div id="question">YES!</div>
+      </article>
+
+      <article class="fill">
+        <h3>Questions</h3>
+        <div id="question">?</div>
+      </article>
+
+      <article>
+        <h3>
+          Thanks
+        </h3>
+        <h4>Connect</h4>
+        <ul>
+          <li><strong>Technocrat</strong> <a href="http://technocrat.com.au">techncrat.com.au</a></li>
+          <li><strong>Twitter</strong> <a href="http://twitter.com/skwashd">@skwashd</a></li>
+          <li><strong>Google+</strong> <a href="http://gplus.to/skwashd">gplus.to/skwashd</a></li>
+          <li><strong>Github</strong> <a href="http://github.com/skwashd">github.com/skwashd</a></li>
+          <li><strong>LinkedIn</strong> <a href="http://linkedin.com/in/davehall">linkedin.com/in/davehall</a></li>
+          <li><strong>Personal Website</strong> <a href="http://davehall.com.au">davehall.com.au</a></li>
+        </ul>
+        <h4>Download</h4>
+        <ul>
+          <li><a href="https://github.com/skwashd/drupalsyd-content-deployments">github.com/skwashd/drupalsyd-content-deployments</a></li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          License
+        </h3>
+        <p>
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/au/"><img alt="Creative Commons License" style="border-width:0" 
+          src="http://i.creativecommons.org/l/by-nc-sa/3.0/au/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/InteractiveResource" 
+          property="dct:title" rel="dct:type">An Enterprise Scale Drupal Workflow</span> by <a xmlns:cc="http://creativecommons.org/ns#" 
+          href="http://davehall.com.au" property="cc:attributionName" rel="cc:attributionURL">Dave Hall</a> is licensed under a <a rel="license" 
+          href="http://creativecommons.org/licenses/by-nc-sa/3.0/au/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Australia License</a>.<br />Based 
+          on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/skwashd/business-days-2012-workflow" rel="dct:source">github.com</a>.
+        </p>
+      </article>
+    </section>
+
+  </body>
+</html>
