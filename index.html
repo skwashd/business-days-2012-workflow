@@ -48,9 +48,7 @@
         <p>
           <img src='images/davehall.jpg'>
         </p>
-        <div class='source white'>
-          Source: <a href="http://www.flickr.com/photos/bendechrau/4766368608/">Ben Dechrai</a>
-        </div>
+        <div class='source white'>Source: <a href="http://www.flickr.com/photos/bendechrau/4766368608/">Ben Dechrai</a></div>
       </article>
 
       <article>
@@ -61,31 +59,18 @@
 
       <article>
         <h3>Small Site Workflow</h3>
-        <ul>
-          <li>Simple</li>
-          <li>Little training required</li>
-          <li>Everything done on Production</li>
-          <li>Publish/Unpublish/Delete</li>
-          <li>Config likely to only be in DB</li>
-        </ul>
+        <img src='images/publishing-options.png'>
       </article>
 
       <article>
-        <h3>Common Publishing Workflow</h3>
+        <h3>Common Publishing Workflows</h3>
         <ul>
-          <li>Everything done on Production</li>
-          <li>Use contrib modules:
-            <ul>
-              <li>Rules</li>
-              <li>Workflow</li>
-              <li>Workbench</li>
-              <li>Maestro</li>
-              <li>Revisioning</li>
-              <li>Others</li>
-            </ul>
-          </li>
-          <li>Needs to be configured for client's needs</li>
-          <li>Config likely to only be in features</li>
+          <li><a href="https://drupal.org/project/rules">Rules</a></li>
+          <li><a href="https://drupal.org/project/workflow">Workflow</a></li>
+          <li><a href="https://drupal.org/project/workbench">Workbench</a></li>
+          <li><a href="https://drupal.org/project/revisioning">Revisioning</a></li>
+          <li><a href="https://drupal.org/project/maestro">Maestro</a></li>
+          <li>...</li>
         </ul>
       </article>
 
@@ -101,64 +86,39 @@
         </ul>
       </article>
 
-      <article>
+      <article class="full">
         <h3>What is Content?</h3>
-        [webchick usability image]
+        <img src="images/mental-model-drupal.png" />
+        <div class="source">Source: <a href="https://drupal.org/node/1175694">Angie Byron</a></div>
       </article>
 
-      <article>
+      <article class="fill">
         <h3>Environments</h3>
-        <ul>
-          [IMAGE REQUIRED - Hippie hugging a tree?]
-          <li>Indepedent sites</li>
-          <li>Content can be moved through</li>
-          <li>Config/code can be reviewed through</li>
-          <li>Changes can be QA'd easily</li>
-          <li>Different security requirements</li>
-        </ul>
+        <img src="images/tree-hugger.jpg" />
+        <div class="source white">Source: <a href="https://secure.flickr.com/photos/practicalowl/5476999709/">practicalowl</a></div>
       </article>
 
-      <article>
+      <article class="fill">
         <h3>Deployments</h3>
-        <ul>
-          [IMAGE REQUIRED - Satelite being deployed into space]
-          <li>Move a change from one environment to another</li>
-          <li>Can be code, config, content or any combination of the 3</li>
-        </ul>
+        <img src="images/rocket-launch.png" />
+        <div class="source">Source: <a href="https://secure.flickr.com/photos/zoramite/3993280685/in/photostream/">Zoramite</a></div>
       </article>
 
-      <article>
-        <h3>Continous Release</h3>
-        <ul>
-          [IMAGE REQUIRED - ???]
-          <li>Deploy when ready</li>
-          <li>Automated Processes</li>
-        </ul>
+      <article class="fill">
+        <h3>Rolling Releases</h3>
+        <img src="images/kids-rolling.jpg" />
+        <div class="source white">Source: <a href="https://secure.flickr.com/photos/methyl_lives/7046516327/">methyl_lives</a></div>
       </article>
 
       <article>
         <h3>How?</h3>
-        <ul>
-          <li>UUID</li>
-          <li>Deploy module</li>
-          <li>Features</li>
-          <li>BEAN</li>
-          <li>Services</li>
-          <li>Behat</li>
-          <li>Sandboxes</li>
-          <li>Jenkins</li>
-          <li>git</li>
-          <li>Everything is a job</li>
-          <li>Another Drupal site</li>
-          <li>WF Server</li>
-        </ul>
       </article>
 
       <article>
         <h3>UUID</h3>
         <ul>
           <li>Universally Unique IDentifier</li>
-          <li>RFC XXXX</li>
+          <li><a href="https://www.ietf.org/rfc/rfc4122.txt">RFC 4122</a></li>
           <li>Each entity has one</li>
           <li>Each revision has one</li>
           <li>Can be tracked through environments</li>
@@ -262,25 +222,16 @@
         </ul>
       </article>
 
-      <article>
+      <article class="fill">
         <h3>Another Drupal Site</h3>
-        <ul>
-          <li>Management node</li>
-          <li>Front end for approvals and deployments</li>
-          <li>Creates and destroys sandboxes</li>
-          <li>Tracks system state across all environments</li>
-          <li>Full history and audit trail</li>
-        </ul>
+        <img src="images/mission-control.jpg" />
+        <div class="source white">Source: <a href="https://secure.flickr.com/photos/deegephotos/5984387881/in/photostream/">deegephotos</a></div>
       </article>
 
-      <article>
+      <article class="fill">
         <h3>Why not Aegir?</h3>
-        <ul>
-          <li>Great project</li>
-          <li>Managing many versions of 1 site</li>
-          <li>Didn't fit the security model</li>
-          <li>Borrowed some of the ideas</li>
-        </ul>
+        <img src="images/aegir.png" />
+        <div class="source white">Source: <a href="https://secure.flickr.com/photos/developmentseed/3530330287/in/photostream/">development seed</a></div>
       </article>
 
       <article>
@@ -325,11 +276,9 @@
       <article>
         <h3>Problems</h3>
         <ul>
-          <li>Building it</li>
+          <li>Node centricity of Drupal</li>
           <li>Filling in the gaps</li>
           <li><acronym title="What Will Drupal Do?">WWDD</acronym>?</li>
-          <li>Pivoting</li>
-          <li><acronym href="Large Scale Drupal">LSD</acronym></li>
         </ul>
       </article>
 
@@ -349,16 +298,16 @@
         </h3>
         <h4>Connect</h4>
         <ul>
+          <li><strong>Client's site</strong> <a href="http://www.nrma.com.au">nrma.com.au</a></li>
           <li><strong>Technocrat</strong> <a href="http://technocrat.com.au">techncrat.com.au</a></li>
           <li><strong>Twitter</strong> <a href="http://twitter.com/skwashd">@skwashd</a></li>
           <li><strong>Google+</strong> <a href="http://gplus.to/skwashd">gplus.to/skwashd</a></li>
           <li><strong>Github</strong> <a href="http://github.com/skwashd">github.com/skwashd</a></li>
           <li><strong>LinkedIn</strong> <a href="http://linkedin.com/in/davehall">linkedin.com/in/davehall</a></li>
-          <li><strong>Personal Website</strong> <a href="http://davehall.com.au">davehall.com.au</a></li>
         </ul>
         <h4>Download</h4>
         <ul>
-          <li><a href="https://github.com/skwashd/drupalsyd-content-deployments">github.com/skwashd/drupalsyd-content-deployments</a></li>
+          <li><a href="https://github.com/skwashd/drupalsyd-content-deployments">github.com/skwashd/business-days-2012-workflow</a></li>
         </ul>
       </article>
 
@@ -373,6 +322,10 @@
           href="http://davehall.com.au" property="cc:attributionName" rel="cc:attributionURL">Dave Hall</a> is licensed under a <a rel="license" 
           href="http://creativecommons.org/licenses/by-nc-sa/3.0/au/">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Australia License</a>.<br />Based 
           on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/skwashd/business-days-2012-workflow" rel="dct:source">github.com</a>.
+        </p>
+        <p>
+          USS Enterprise photo source <a href="http://www.navy.mil/view_single.asp?id=15091">US Navy</a>, and distributed 
+          under <a href="http://www.navy.mil/about.asp">liberal licensing terms</a>.
         </p>
       </article>
     </section>
